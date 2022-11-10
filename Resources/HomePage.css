@@ -27,7 +27,7 @@
 /* About Section */
 
 #About {
-    background-image: url("file:///C:/Users/19032/Documents/GroupProject/WorkoutLog/Resources/images/whitebackground.png");
+    background-image: url("./whitebackground.png");
     background-size: cover;
     background-color: #ececec;
     position: absolute;
