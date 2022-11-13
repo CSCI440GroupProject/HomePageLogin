@@ -20,17 +20,26 @@
 
     $rs = $mysqli_connection->query($sql);
     $row = $rs->fetch_assoc();
-    $pwd = $row['userPassword'];
 
-    if ($userPassword == $pwd)
+    if($row != '')
     {
-        $_SESSION['verified_user'] = $username;
-        //echo "username and password correct.";
-        header('Location: http://csci440.com/LogWorkout.html');
+        $pwd = $row['userPassword'];
+
+        if ($userPassword == $pwd)
+        {
+            $_SESSION['verified_user'] = $username;
+            //echo "username and password correct.";
+            header('Location: http://csci440.com/LogWorkout.html');
+        }
+        else
+        {
+            //echo "incorrect";
+            header('Location: http://csci440.com/HomePage.html');
+            exit();
+        }
     }
     else
     {
-        //echo "incorrect";
         header('Location: http://csci440.com/HomePage.html');
         exit();
     }
